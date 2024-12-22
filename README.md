@@ -14,8 +14,12 @@ Main Features:
 - **Comparison between species**: Analysis of the average protein length per species, using clear and detailed graphics.
 - **Gene-length relationship**: Visualization of the relationship between specific genes and the average length of the proteins they encode.
 - **Amino acid composition by species**: Use of a heatmap to show differences in average amino acid composition between species.
-
-**Required libraries**
-pandas
-seaborn
-matplotlib
+**Requirements**
+1) TSV files containing at least the columns:
+- Organism
+- Sequence
+- Gene Names
+2) Required libraries**
+- pandas
+- seaborn
+- matplotlib
