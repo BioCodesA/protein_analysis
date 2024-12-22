@@ -13,8 +13,11 @@ Main Features:
 - **Amino acid frequency**: Calculation and visualization of the frequency of amino acids in the analyzed sequences.
 - **Comparison between species**: Analysis of the average protein length per species, using clear and detailed graphics.
 - **Gene-length relationship**: Visualization of the relationship between specific genes and the average length of the proteins they encode.
-- **Amino acid composition by species**: Use of a heatmap to show differences in average amino acid composition between species.
+- **Amino acid composition by species**: Use of a heatmap to show differences in average amino acid composition between species
+
+
 **Requirements**
+
 1) TSV files containing at least the columns:
 - Organism
 - Sequence
