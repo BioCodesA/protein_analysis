@@ -1,20 +1,29 @@
+
+"""Por favor antes de usar él código leer los documenos READMY.md y Licence"""
+'''los archivos con los cuales probe este código estan en esta misma carpeta y tambien los puedes usar para probar el código'''
+''' si quieres analizar tus propios datos asegurate de que estén en formato .tsv'''
+
+
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Función para calcular la longitud de una proteína
+
 def calcular_longitud_proteina(secuencia):
     return len(secuencia)
 
 
 # Función para calcular la frecuencia de aminoácidos
+
 def calcular_frecuencia_aminoacidos(secuencias):
     from collections import Counter
     todas_secuencias = ''.join(secuencias)
     return Counter(todas_secuencias)
 
 
-# Función para leer archivos TSV o TXT
+# Función para leer archivos TSV
+
 def leer_archivo_tsv(ruta):
     try:
         df = pd.read_csv(ruta, sep='\t')
@@ -24,26 +33,28 @@ def leer_archivo_tsv(ruta):
         print(f"Error al leer el archivo: {e}")
         return None
 
+
 # Función principal para análisis
+
 def analizar_datos(df):
     if df is None:
         print("No se proporcionaron datos para el análisis.")
         return
 
-    # Filtrar columnas relevantes
-    columnas_relevantes = ['Organism', 'Sequence', 'Gene Names']
+    
+    columnas_relevantes = ['Organism', 'Sequence', 'Gene Names']          # Filtrar columnas relevantes
     df = df[columnas_relevantes].dropna()
 
-    # Calcular longitud de proteínas
-    df['Protein Length'] = df['Sequence'].apply(calcular_longitud_proteina)
+    
+    df['Protein Length'] = df['Sequence'].apply(calcular_longitud_proteina)     # Calcular longitud de proteínas
 
-    # Generar gráficos
     generar_graficos(df)
 
 # Función para generar gráficos
+
 def generar_graficos(df):
 
-    # Gráfico 1: Distribución de la longitud de las proteínas
+                                                            ''' GRAFICO 1: Distribución de la longitud de las proteínas'''
 
     sns.histplot(df['Protein Length'], bins=30, kde=True, color="blue")
     plt.title("Distribución de la Longitud de las Proteínas")
@@ -51,7 +62,8 @@ def generar_graficos(df):
     plt.ylabel("Frecuencia")
     plt.show()
 
-    # Gráfico 2: Frecuencia de aminoácidos individuales
+                                                             '''GRAFICO 2: Frecuencia de aminoácidos individuales'''
+
 
     frecuencias = calcular_frecuencia_aminoacidos(df['Sequence'])
     amino_df = pd.DataFrame(frecuencias.items(), columns=['Amino Acid', 'Frequency'])
@@ -63,7 +75,8 @@ def generar_graficos(df):
     plt.ylabel("Frecuencia")
     plt.show()
 
-    # Gráfico 3: Comparación de longitud promedio de proteínas entre especies
+                                                          '''GRAFICO 3: Comparación de longitud promedio de proteínas entre especies'''
+
     
     promedio_longitud = df.groupby('Organism')['Protein Length'].mean().reset_index()
 
@@ -75,7 +88,7 @@ def generar_graficos(df):
     plt.show()
 
 
-    # Gráfico 4: Relación entre genes y longitud promedio de proteínas
+                                                             '''GRAFICO 4: Relación entre genes y longitud promedio de proteínas'''
 
     promedio_por_gen = df.groupby('Gene Names')['Protein Length'].mean().reset_index()
 
@@ -88,7 +101,8 @@ def generar_graficos(df):
 
 
 
-    # Gráfico 5: Relación entre especies y composición promedio de aminoácidos
+                                                          '''GRAFICO 5: Relación entre especies y composición promedio de aminoácidos'''
+
     composicion_aminoacidos = df['Sequence'].apply(calcular_frecuencia_aminoacidos)
     composicion_df = pd.DataFrame(composicion_aminoacidos.tolist()).fillna(0)
     composicion_df['Organism'] = df['Organism'].values
@@ -104,8 +118,8 @@ def generar_graficos(df):
 
 
 
-# Punto de entrada principal
+                                           
 if __name__ == "__main__":
-    ruta_tsv = input("Ingrese la ruta del archivo TSV: ")
-    datos = leer_archivo_tsv(ruta_tsv)
+    ruta_tsv = input("Ingrese la ruta del archivo TSV: ")       # Solicitar al usuario la ruta del archivo TSV: en consola o terminal pones la dirección en la que se encuantra el archivo para ser procesado 
+    datos = leer_archivo_tsv(ruta_tsv)                                           
     analizar_datos(datos)
