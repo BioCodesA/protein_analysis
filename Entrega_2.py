@@ -120,6 +120,6 @@ def generar_graficos(df):
 
                                            
 if __name__ == "__main__":
-    ruta_tsv = input("Ingrese la ruta del archivo TSV: ")       # Solicitar al usuario la ruta del archivo TSV: en consola o terminal pones la dirección en la que se encuantra el archivo para ser procesado 
+    ruta_tsv = input("Ingrese la ruta del archivo TSV: ")       # Solicitar al usuario la ruta del archivo TSV: en la consola o terminal pones la dirección en la que se encuentra el archivo para ser procesado 
     datos = leer_archivo_tsv(ruta_tsv)                                           
     analizar_datos(datos)
