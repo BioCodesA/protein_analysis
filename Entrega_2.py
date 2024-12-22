@@ -1,6 +1,6 @@
 
 """Por favor antes de usar él código leer los documenos READMY.md y Licence"""
-'''los archivos con los cuales probe este código estan en esta misma carpeta y tambien los puedes usar para probar el código'''
+'''El archivo con el cual probe este código esta con el nobre de bacterias_protein.tsv , tambien puedes usarlo para probar este código '''
 ''' si quieres analizar tus propios datos asegurate de que estén en formato .tsv'''
 
 
