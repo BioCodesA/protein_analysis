@@ -1,7 +1,9 @@
 
-"""Por favor antes de usar él código leer los documenos READMY.md y Licence"""
-'''Los archivos con los que probe este código están con el nombre de bacterias_protein.tsv  y  uniprotkb_2024_12_23.tsv,  tambien puedes usarlo para probar este código '''
-''' si quieres analizar tus propios datos asegurate de que estén en formato .tsv y que tenga columnas con el nombre Organism, Sequence, Gene Names'''
+"""Please read the READMY.md and Licence documents before using this code"""
+
+'''The files I tested this code with are named bacterias_protein.tsv and uniprotkb_2024_12_23.tsv, you can also use them to test this code'''
+
+'''If you want to analyze your own data make sure they are in .tsv format and have columns named Organism, Sequence, Gene Names'''
 
 
 import pandas as pd
